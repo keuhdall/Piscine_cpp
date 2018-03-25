@@ -42,16 +42,56 @@ void handleAdd(User *users) {
     users[User::getUserCount() - 1].setFavMeal(tmpString[8]);
     users[User::getUserCount() - 1].setUnderwearColor(tmpString[9]);
     users[User::getUserCount() - 1].setDarkestSecret(tmpString[10]);
+    std::cout << std::endl;
+}
+
+std::string formatString(std::string s) {
+    std::string tmpString;
+    if (s.size() > 10) {
+        tmpString = s.substr(0, 9);
+        tmpString += ".";
+        return tmpString;
+    } else if (s.size() < 10) {
+        for (int i = s.size(); i < 10; i++) {
+            s += " ";
+        }
+    }
+    return s;
+}
+
+void displayAllUsers(User *users) {
+    std::cout << "|Index     |Firstname |Lastname  |Nickname  |" << std::endl;
+    for (int i = 0; i < User::getUserCount(); i++) {
+        std::cout << "|" << formatString(std::to_string(i + 1)) << "|" << formatString(users[i].getFirstname()) << "|" << formatString(users[i].getLastname()) << "|" << formatString(users[i].getNickname()) << "|" << std::endl;
+    }
+    std::cout << std::endl;
 }
 
 void handleSearch(User *users) {
+    int index;
     if (User::getUserCount() == 0) {
         std::cout << "No users currently registered in the phonebook." << std::endl;
         return;
     }
-    for (int i = 0; i < User::getUserCount(); i++) {
-        std::cout << "Firstname : " << users[i].getFirstname() << std::endl;
+    displayAllUsers(users);
+    std::cout << "Enter the index of the profile you want to display." << std::endl;
+    std::cin >> index;
+    if (index - 1 < 0 || index > User::getUserCount()) {
+        std::cout << "Error : this user does not exist." << std::endl;
+        return;
     }
+    std::cout << "Firstname : "       << users[index - 1].getFirstname()      << std::endl;
+    std::cout << "Lastname : "        << users[index - 1].getLastname()       << std::endl;
+    std::cout << "Nickname : "        << users[index - 1].getNickname()       << std::endl;
+    std::cout << "Login : "           << users[index - 1].getLogin()          << std::endl;
+    std::cout << "Postal : "          << users[index - 1].getPostal()         << std::endl;
+    std::cout << "Email : "           << users[index - 1].getEmail()          << std::endl;
+    std::cout << "Phone number : "    << users[index - 1].getNum()            << std::endl;
+    std::cout << "Birthday : "        << users[index - 1].getBirthday()       << std::endl;
+    std::cout << "Favorite Meal : "   << users[index - 1].getFavMeal()        << std::endl;
+    std::cout << "Underwear color : " << users[index - 1].getUnderwearColor() << std::endl;
+    std::cout << "Darkest secret : "  << users[index - 1].getDarkestSecret()  << std::endl;
+    std::cout << std::endl;
 }
 
 void handleInput(std::string input, User *users) {
