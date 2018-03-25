@@ -1,3 +1,6 @@
+#ifndef USER_CLASS_HPP
+# define USER_CLASS_HPP
+
 #include <iostream>
 #include <string.h>
 
@@ -43,3 +46,5 @@ class User {
         std::string _underwearColor;
         std::string _darkestSecret;
 };
+
+#endif
