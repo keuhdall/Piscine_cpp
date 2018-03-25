@@ -1,3 +1,4 @@
+#include <iostream>
 #include "User.class.hpp"
 
 int User::_userCount = 0;
@@ -52,7 +53,7 @@ void User::setDarkestSecret(std::string darkestSecret) {
     this->_darkestSecret = darkestSecret;
 }
 
-static void User::incrUserCount() {
+void User::incrUserCount() {
     _userCount++;
 }
 

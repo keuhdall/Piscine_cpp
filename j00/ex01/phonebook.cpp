@@ -2,10 +2,10 @@
 #include <string.h>
 #include "User.class.hpp"
 
-void handleAdd(User users[8]) {
+void handleAdd(User *users) {
     std::string tmpString[11];
     User::incrUserCount();
-    if (User::getUserCount() <= 8) {
+    if (User::getUserCount() >= 8) {
         std::cout << "The phonebook is full ! You should have used it more wisely, now deal with it." << std::endl;
         return;
     }
@@ -44,17 +44,17 @@ void handleAdd(User users[8]) {
     users[User::getUserCount() - 1].setDarkestSecret(tmpString[10]);
 }
 
-void handleSearch(User users[8]) {
+void handleSearch(User *users) {
     if (User::getUserCount() == 0) {
         std::cout << "No users currently registered in the phonebook." << std::endl;
         return;
     }
-    for (int i = 0; i < User::getUserCount() - 1; i++) {
+    for (int i = 0; i < User::getUserCount(); i++) {
         std::cout << "Firstname : " << users[i].getFirstname() << std::endl;
     }
 }
 
-void handleInput(std::string input, User users[8]) {
+void handleInput(std::string input, User *users) {
     if (!input.compare("ADD")) {
         handleAdd(users);
     } else if (!input.compare("SEARCH")) {
@@ -69,7 +69,7 @@ void handleInput(std::string input, User users[8]) {
 
 int main(void) {
     std::string input;
-    User users[8];
+    User *users = new User[8];
     while (1) {
         std::cout << "Please enter a command." << std::endl;
         std::cin >> input;

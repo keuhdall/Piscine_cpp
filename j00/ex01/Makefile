@@ -17,6 +17,7 @@ INC_PATH=.
 OBJ_PATH=./objs
 
 SRC_NAME = phonebook.cpp \
+			User.class.cpp \
 
 OBJ_NAME = $(SRC_NAME:.cpp=.o)
 

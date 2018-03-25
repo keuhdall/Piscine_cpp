@@ -1,8 +1,9 @@
+#include <iostream>
 #include <string.h>
 
 class User {
     public:
-        User(std::string name, std::string num);
+        User();
         ~User();
         void setFirstname(std::string firstname);
         void setLastname(std::string lastname);
