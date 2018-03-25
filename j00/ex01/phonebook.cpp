@@ -1,4 +1,5 @@
 #include <iostream>
+#include <locale>
 #include <string.h>
 #include "User.class.hpp"
 
@@ -67,8 +68,13 @@ void displayAllUsers(User *users) {
     std::cout << std::endl;
 }
 
+bool is_digits(std::string str)
+{
+    return str.find_first_not_of("0123456789") == std::string::npos;
+}
+
 void handleSearch(User *users) {
-    int index;
+    std::string index;
     if (User::getUserCount() == 0) {
         std::cout << "No users currently registered in the phonebook." << std::endl;
         return;
@@ -76,21 +82,24 @@ void handleSearch(User *users) {
     displayAllUsers(users);
     std::cout << "Enter the index of the profile you want to display." << std::endl;
     std::cin >> index;
-    if (index - 1 < 0 || index > User::getUserCount()) {
-        std::cout << "Error : this user does not exist." << std::endl;
+    if (!is_digits(index)) {
+        std::cerr << "Error : the input was not a number." << std::endl;
+        return;
+    } else if (std::stoi(index) - 1 < 0 || std::stoi(index) > User::getUserCount()) {
+        std::cerr << "Error : this user does not exist." << std::endl;
         return;
     }
-    std::cout << "Firstname : "       << users[index - 1].getFirstname()      << std::endl;
-    std::cout << "Lastname : "        << users[index - 1].getLastname()       << std::endl;
-    std::cout << "Nickname : "        << users[index - 1].getNickname()       << std::endl;
-    std::cout << "Login : "           << users[index - 1].getLogin()          << std::endl;
-    std::cout << "Postal : "          << users[index - 1].getPostal()         << std::endl;
-    std::cout << "Email : "           << users[index - 1].getEmail()          << std::endl;
-    std::cout << "Phone number : "    << users[index - 1].getNum()            << std::endl;
-    std::cout << "Birthday : "        << users[index - 1].getBirthday()       << std::endl;
-    std::cout << "Favorite Meal : "   << users[index - 1].getFavMeal()        << std::endl;
-    std::cout << "Underwear color : " << users[index - 1].getUnderwearColor() << std::endl;
-    std::cout << "Darkest secret : "  << users[index - 1].getDarkestSecret()  << std::endl;
+    std::cout << "Firstname : "       << users[std::stoi(index) - 1].getFirstname()      << std::endl;
+    std::cout << "Lastname : "        << users[std::stoi(index) - 1].getLastname()       << std::endl;
+    std::cout << "Nickname : "        << users[std::stoi(index) - 1].getNickname()       << std::endl;
+    std::cout << "Login : "           << users[std::stoi(index) - 1].getLogin()          << std::endl;
+    std::cout << "Postal : "          << users[std::stoi(index) - 1].getPostal()         << std::endl;
+    std::cout << "Email : "           << users[std::stoi(index) - 1].getEmail()          << std::endl;
+    std::cout << "Phone number : "    << users[std::stoi(index) - 1].getNum()            << std::endl;
+    std::cout << "Birthday : "        << users[std::stoi(index) - 1].getBirthday()       << std::endl;
+    std::cout << "Favorite Meal : "   << users[std::stoi(index) - 1].getFavMeal()        << std::endl;
+    std::cout << "Underwear color : " << users[std::stoi(index) - 1].getUnderwearColor() << std::endl;
+    std::cout << "Darkest secret : "  << users[std::stoi(index) - 1].getDarkestSecret()  << std::endl;
     std::cout << std::endl;
 }
 
