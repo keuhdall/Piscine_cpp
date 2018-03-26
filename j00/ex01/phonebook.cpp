@@ -11,27 +11,27 @@ void handleAdd(User *users) {
         return;
     }
     std::cout << "Firstname : " << std::endl;
-    std::cin >> tmpString[0];
+    std::getline(std::cin, tmpString[0]);
     std::cout << "Lastname : " << std::endl;
-    std::cin >> tmpString[1];
+    std::getline(std::cin, tmpString[1]);
     std::cout << "Nickname : " << std::endl;
-    std::cin >> tmpString[2];
+    std::getline(std::cin, tmpString[2]);
     std::cout << "Login : " << std::endl;
-    std::cin >> tmpString[3];
+    std::getline(std::cin, tmpString[3]);
     std::cout << "Postal Address : " << std::endl;
-    std::cin >> tmpString[4];
+    std::getline(std::cin, tmpString[4]);
     std::cout << "Email : " << std::endl;
-    std::cin >> tmpString[5];
+    std::getline(std::cin, tmpString[5]);
     std::cout << "Phone Number : " << std::endl;
-    std::cin >> tmpString[6];
+    std::getline(std::cin, tmpString[6]);
     std::cout << "Birthday : " << std::endl;
-    std::cin >> tmpString[7];
+    std::getline(std::cin, tmpString[7]);
     std::cout << "Favorite Meal : " << std::endl;
-    std::cin >> tmpString[8];
+    std::getline(std::cin, tmpString[8]);
     std::cout << "Underwear Color : " << std::endl;
-    std::cin >> tmpString[9];
+    std::getline(std::cin, tmpString[9]);
     std::cout << "Darkest Secret : " << std::endl;
-    std::cin >> tmpString[10];
+    std::getline(std::cin, tmpString[10]);
     users[User::getUserCount() - 1].setFirstname(tmpString[0]);
     users[User::getUserCount() - 1].setLastname(tmpString[1]);
     users[User::getUserCount() - 1].setNickname(tmpString[2]);
@@ -81,7 +81,7 @@ void handleSearch(User *users) {
     }
     displayAllUsers(users);
     std::cout << "Enter the index of the profile you want to display." << std::endl;
-    std::cin >> index;
+    std::getline(std::cin, index);
     if (!is_digits(index)) {
         std::cerr << "Error : the input was not a number." << std::endl;
         return;
@@ -121,7 +121,7 @@ int main(void) {
     User *users = new User[8];
     while (1) {
         std::cout << "Please enter a command." << std::endl;
-        std::cin >> input;
+        std::getline(std::cin, input);
         handleInput(input, users);
     }
     return 0;
