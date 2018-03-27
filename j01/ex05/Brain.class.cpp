@@ -1,5 +1,4 @@
 #include "Brain.class.hpp"
-#include <iostream>
 #include <sstream>
 
 Brain::Brain() {

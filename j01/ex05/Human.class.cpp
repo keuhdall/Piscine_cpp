@@ -1,7 +1,5 @@
 #include "Human.class.hpp"
-#include <string.h>
 #include <sstream>
-#include <iostream>
 
 Human::Human() {
 }
