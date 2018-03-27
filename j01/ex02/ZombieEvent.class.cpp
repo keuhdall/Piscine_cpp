@@ -1,7 +1,5 @@
 #include "ZombieEvent.class.hpp"
 
-
-
 ZombieEvent::ZombieEvent() : _type("Walking zombie") {
 }
 
