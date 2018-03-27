@@ -3,7 +3,7 @@
 #include <string.h>
 #include "User.class.hpp"
 
-void handleAdd(User *users) {
+void handleAdd(User users[8]) {
     std::string tmpString[11];
     User::incrUserCount();
     if (User::getUserCount() >= 8) {
@@ -60,7 +60,7 @@ std::string formatString(std::string s) {
     return s;
 }
 
-void displayAllUsers(User *users) {
+void displayAllUsers(User users[8]) {
     std::cout << "|Index     |Firstname |Lastname  |Nickname  |" << std::endl;
     for (int i = 0; i < User::getUserCount(); i++) {
         std::cout << "|" << formatString(std::to_string(i + 1)) << "|" << formatString(users[i].getFirstname()) << "|" << formatString(users[i].getLastname()) << "|" << formatString(users[i].getNickname()) << "|" << std::endl;
@@ -73,7 +73,7 @@ bool is_digits(std::string str)
     return str.find_first_not_of("0123456789") == std::string::npos;
 }
 
-void handleSearch(User *users) {
+void handleSearch(User users[8]) {
     std::string index;
     if (User::getUserCount() == 0) {
         std::cout << "No users currently registered in the phonebook." << std::endl;
@@ -103,7 +103,7 @@ void handleSearch(User *users) {
     std::cout << std::endl;
 }
 
-void handleInput(std::string input, User *users) {
+void handleInput(std::string input, User users[8]) {
     if (!input.compare("ADD")) {
         handleAdd(users);
     } else if (!input.compare("SEARCH")) {
@@ -118,7 +118,7 @@ void handleInput(std::string input, User *users) {
 
 int main(void) {
     std::string input;
-    User *users = new User[8];
+    User users[8];
     while (1) {
         std::cout << "Please enter a command." << std::endl;
         std::getline(std::cin, input);
