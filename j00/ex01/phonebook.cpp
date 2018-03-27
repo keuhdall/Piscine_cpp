@@ -1,5 +1,4 @@
 #include <iostream>
-#include <locale>
 #include <string.h>
 #include "User.class.hpp"
 
@@ -47,21 +46,22 @@ void handleAdd(User users[8]) {
 }
 
 std::string formatString(std::string s) {
-    std::string tmpString;
+    std::string tmpString = "";
     if (s.size() > 10) {
         tmpString = s.substr(0, 9);
         tmpString += ".";
         return tmpString;
     } else if (s.size() < 10) {
         for (int i = s.size(); i < 10; i++) {
-            s += " ";
+            tmpString += " ";
         }
+        s = tmpString + s;
     }
     return s;
 }
 
 void displayAllUsers(User users[8]) {
-    std::cout << "|Index     |Firstname |Lastname  |Nickname  |" << std::endl;
+    std::cout << "|     Index| Firstname|  Lastname|  Nickname|" << std::endl;
     for (int i = 0; i < User::getUserCount(); i++) {
         std::cout << "|" << formatString(std::to_string(i + 1)) << "|" << formatString(users[i].getFirstname()) << "|" << formatString(users[i].getLastname()) << "|" << formatString(users[i].getNickname()) << "|" << std::endl;
     }
