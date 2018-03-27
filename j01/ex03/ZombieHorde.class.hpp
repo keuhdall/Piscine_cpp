@@ -1,3 +1,6 @@
+#ifndef ZOMBIEHORDE_CLASS_HPP
+# define ZOMBIEHORDE_CLASS_HPP
+
 #include "Zombie.class.hpp"
 
 class ZombieHorde {
@@ -10,3 +13,5 @@ class ZombieHorde {
         int         _size;
         std::string _genName(int len);
 };
+
+#endif
