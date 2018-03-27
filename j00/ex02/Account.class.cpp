@@ -55,7 +55,7 @@ int	Account::getNbWithdrawals()
 	return _totalNbWithdrawals;
 }
 
-int Account::getBonus() {
+int Account::getBonus() const {
     return _bonus;
 }
 
