@@ -81,7 +81,8 @@ void handleSearch(User users[8]) {
     }
     displayAllUsers(users);
     std::cout << "Enter the index of the profile you want to display." << std::endl;
-    std::getline(std::cin, index);
+    if (!std::getline(std::cin, index))
+        exit(1);
     if (!is_digits(index)) {
         std::cerr << "Error : the input was not a number." << std::endl;
         return;
@@ -121,7 +122,8 @@ int main(void) {
     User users[8];
     while (1) {
         std::cout << "Please enter a command." << std::endl;
-        std::getline(std::cin, input);
+        if (!std::getline(std::cin, input))
+            exit(1);
         handleInput(input, users);
     }
     return 0;
