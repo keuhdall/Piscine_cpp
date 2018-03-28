@@ -1,7 +1,9 @@
 #include "ZombieEvent.class.hpp"
+#include <ctime>
 
 int main()
 {
+    std::srand(std::time(0));
     ZombieEvent WalkingZombiesFactory;
     ZombieEvent RunningZombiesFactory;
     ZombieEvent CrawlingZombiesFactory;
