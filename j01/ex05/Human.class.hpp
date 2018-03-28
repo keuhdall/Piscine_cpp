@@ -9,9 +9,9 @@ class Human {
         Human();
         ~Human();
         std::string identify(void);
-        Brain &getBrain(void);
+        const Brain &getBrain(void);
     private:
-        Brain _brain;
+        const Brain _brain;
 };
 
 #endif

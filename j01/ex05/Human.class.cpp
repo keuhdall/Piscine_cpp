@@ -12,6 +12,6 @@ std::string Human::identify() {
     ss << this;
     return ss.str();
 }
-Brain &Human::getBrain() {
-    return this->_brain;
+const Brain &Human::getBrain() {
+    return _brain;
 }

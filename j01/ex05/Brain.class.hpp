@@ -7,7 +7,7 @@ class Brain {
     public:
         Brain();
         ~Brain();
-        std::string identify(void);
+        std::string identify(void) const;
 };
 
 #endif
