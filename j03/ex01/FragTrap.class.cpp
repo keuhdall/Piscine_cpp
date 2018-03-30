@@ -3,6 +3,8 @@
 FragTrap::FragTrap(): _name("Jlaz"), _hp(100),
     _maxHp(100), _energy(100), _maxEnergy(100),
     _level(1), _meleeDmg(30), _rangedDmg(20), _armor(5) {
+    (void)_maxEnergy;
+    (void)_level;
     std::cout << "A new FragTrap named " << _name << "was born !" << std::endl;
 }
 
@@ -10,6 +12,10 @@ FragTrap::FragTrap(std::string name): _name(name), _hp(100),
     _maxHp(100), _energy(100), _maxEnergy(100),
     _level(1), _meleeDmg(30), _rangedDmg(20), _armor(5) {
     std::cout << "A new FragTrap named " << _name << " was born !" << std::endl;
+}
+
+FragTrap::FragTrap(FragTrap const & src) {
+    *this = src;
 }
 
 FragTrap::~FragTrap() {
