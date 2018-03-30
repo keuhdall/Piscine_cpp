@@ -10,6 +10,8 @@ ScavTrap::ScavTrap(): ClapTrap() {
     _meleeDmg = 20;
     _rangedDmg = 15;
     _armor = 3;
+    (void)_maxEnergy;
+    (void)_level;
     std::cout << "A new ScavTrap named " << _name << " was born !" << std::endl;
 }
 
@@ -23,7 +25,11 @@ ScavTrap::ScavTrap(std::string name): ClapTrap(name) {
     _rangedDmg = 15;
     _armor = 3;
     std::cout << "A new ScavTrap named " << _name << " was born !" << std::endl;
-} 
+}
+
+ScavTrap::ScavTrap(ScavTrap const & src) {
+    *this = src;
+}
 
 ScavTrap::~ScavTrap() {
     std::cout << "ScavTrap " << _name << " exploded" << std::endl;

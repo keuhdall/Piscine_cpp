@@ -3,6 +3,8 @@
 ClapTrap::ClapTrap(): _name("Jlaz"), _hp(100),
     _maxHp(100), _energy(100), _maxEnergy(100),
     _level(1), _meleeDmg(30), _rangedDmg(20), _armor(5) {
+    (void)_maxEnergy;
+    (void)_level;
     std::cout << "A new ClapTrap named " << _name << " was born !" << std::endl;
 }
 
@@ -10,6 +12,10 @@ ClapTrap::ClapTrap(std::string name): _name(name), _hp(100),
     _maxHp(100), _energy(100), _maxEnergy(100),
     _level(1), _meleeDmg(30), _rangedDmg(20), _armor(5) {
     std::cout << "A new ClapTrap named " << _name << " was born !" << std::endl;
+}
+
+ClapTrap::ClapTrap(ClapTrap const & src) {
+    *this = src;
 }
 
 ClapTrap::~ClapTrap() {
