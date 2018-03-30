@@ -18,8 +18,6 @@ class ClapTrap {
         void vaulthunter_dot_exe(std::string const & target);
         int getHp(void) const;
         int getEnergy(void) const;
-        int getHp(void) const;
-        int getEnergy(void) const;
         std::string getName(void) const;
 
     protected:

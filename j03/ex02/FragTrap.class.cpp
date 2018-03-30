@@ -1,14 +1,27 @@
 #include "FragTrap.class.hpp"
 
-FragTrap::FragTrap(): _name("Jlaz"), _hp(100),
-    _maxHp(100), _energy(100), _maxEnergy(100),
-    _level(1), _meleeDmg(30), _rangedDmg(20), _armor(5) {
-    std::cout << "A new FragTrap named " << _name << "was born !" << std::endl;
+FragTrap::FragTrap(): ClapTrap() {
+    _name = "Jlaz";
+    _hp = 100;
+    _maxHp = 100;
+    _energy = 100;
+    _maxEnergy = 100;
+    _level = 1;
+    _meleeDmg = 30;
+    _rangedDmg = 20;
+    _armor = 5;
+    std::cout << "A new FragTrap named " << _name << " was born !" << std::endl;
 }
 
-FragTrap::FragTrap(std::string name): _name(name), _hp(100),
-    _maxHp(100), _energy(100), _maxEnergy(100),
-    _level(1), _meleeDmg(30), _rangedDmg(20), _armor(5) {
+FragTrap::FragTrap(std::string name): ClapTrap(name) {
+    _hp = 100;
+    _maxHp = 100;
+    _energy = 100;
+    _maxEnergy = 100;
+    _level = 1;
+    _meleeDmg = 30;
+    _rangedDmg = 20;
+    _armor = 5;
     std::cout << "A new FragTrap named " << _name << " was born !" << std::endl;
 }
 
@@ -18,9 +31,9 @@ FragTrap::~FragTrap() {
 
 FragTrap & FragTrap::operator=(const FragTrap & rhs) {
     if (this != &rhs)
-        _hp = rhs.getHp();
-        _energy = rhs.getEnergy();
-        _name = rhs.getName();
+        _hp = rhs._hp;
+        _energy = rhs._energy;
+        _name = rhs._name;
     return *this;
 }
 

@@ -1,14 +1,29 @@
 #include "ScavTrap.class.hpp"
 
-ScavTrap::ScavTrap() {
-    ClapTrap();
-    std::cout << "A new ScavTrap named " << _name << "was born !" << std::endl;
-}
-
-ScavTrap::ScavTrap(std::string name) {
-    ClapTrap(name);
+ScavTrap::ScavTrap(): ClapTrap() {
+    _name = "Jlaz";
+    _hp = 100;
+    _maxHp = 100;
+    _energy = 50;
+    _maxEnergy = 50;
+    _level = 1;
+    _meleeDmg = 20;
+    _rangedDmg = 15;
+    _armor = 3;
     std::cout << "A new ScavTrap named " << _name << " was born !" << std::endl;
 }
+
+ScavTrap::ScavTrap(std::string name): ClapTrap(name) {
+    _hp = 100;
+    _maxHp = 100;
+    _energy = 50;
+    _maxEnergy = 50;
+    _level = 1;
+    _meleeDmg = 20;
+    _rangedDmg = 15;
+    _armor = 3;
+    std::cout << "A new ScavTrap named " << _name << " was born !" << std::endl;
+} 
 
 ScavTrap::~ScavTrap() {
     std::cout << "ScavTrap " << _name << " exploded" << std::endl;
@@ -16,9 +31,9 @@ ScavTrap::~ScavTrap() {
 
 ScavTrap & ScavTrap::operator=(const ScavTrap & rhs) {
     if (this != &rhs)
-        _hp = rhs.getHp();
-        _energy = rhs.getEnergy();
-        _name = rhs.getName();
+        _hp = rhs._hp;
+        _energy = rhs._energy;
+        _name = rhs._name;
     return *this;
 }
 

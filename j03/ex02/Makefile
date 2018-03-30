@@ -16,7 +16,8 @@ SRC_PATH=.
 INC_PATH=.
 OBJ_PATH=./objs
 
-SRC_NAME = FragTrap.class.cpp \
+SRC_NAME = ClapTrap.class.cpp \
+			FragTrap.class.cpp \
 			ScavTrap.class.cpp \
 			main.cpp \
 

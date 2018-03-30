@@ -7,7 +7,7 @@
 int main() {
     srand(time(0));
 
-    ClapTrap c1("test");
+    ClapTrap c1("Pascal");
     ClapTrap c2 = ClapTrap();
     ClapTrap c3 = ClapTrap();
 
