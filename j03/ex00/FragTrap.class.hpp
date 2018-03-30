@@ -17,7 +17,9 @@ class FragTrap {
         void beRepaired(unsigned int amount);
         void vaulthunter_dot_exe(std::string const & target);
         int getHp(void) const;
+        int getMaxHp(void) const;
         int getEnergy(void) const;
+        int getLevel(void) const;
         std::string getName(void) const;
 
     private:
