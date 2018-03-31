@@ -9,6 +9,7 @@ SuperMutant::SuperMutant(SuperMutant const & src) {
 }
 
 SuperMutant::~SuperMutant() {
+    std::cout << "Aaargh ..." << std::endl;
 }
 
 SuperMutant & SuperMutant::operator=(SuperMutant const & rhs) {
@@ -22,6 +23,4 @@ SuperMutant & SuperMutant::operator=(SuperMutant const & rhs) {
 void SuperMutant::takeDamage(int dmg) {
     _hp -= (dmg - 3);
     _hp = _hp < 0 ? 0 : _hp;
-    if (!_hp)
-        std::cout << "Aaargh ..." << std::endl;
 }

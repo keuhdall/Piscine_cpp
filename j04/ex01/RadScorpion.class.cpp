@@ -9,6 +9,7 @@ RadScorpion::RadScorpion(RadScorpion const & src) {
 }
 
 RadScorpion::~RadScorpion() {
+    std::cout << "* SPROTCH *" << std::endl;
 }
 
 RadScorpion & RadScorpion::operator=(RadScorpion const & rhs) {
@@ -21,7 +22,5 @@ RadScorpion & RadScorpion::operator=(RadScorpion const & rhs) {
 
 void RadScorpion::takeDamage(int dmg) {
     _hp -= dmg;
-    _hp = _hp < 0 ? 0 : _hp;
-    if (!_hp)
-        std::cout << "* SPROTCH *" << std::endl;
+    _hp = _hp < 0 ? 0 : _hp;        
 }

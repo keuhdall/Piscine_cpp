@@ -1,13 +1,13 @@
 #include "Peon.class.hpp"
 
-Peon::Peon() : Victim() {
+Peon::Peon() : Victim("undefined") {
 }
 
 Peon::Peon(std::string name) : Victim(name) {
     std::cout << _name << " : Zog zog." << std::endl;
 }
 
-Peon::Peon(Peon const & src) {
+Peon::Peon(Peon const & src) : Victim("undefined") {
     *this = src;
     std::cout << _name << " : Zog zog." << std::endl;
 }

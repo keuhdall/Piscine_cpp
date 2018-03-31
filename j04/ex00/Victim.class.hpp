@@ -15,8 +15,9 @@ class Victim {
         std::string getName(void) const;
 
     protected:
-        Victim();
         std::string _name;
+    private:
+        Victim();
 };
 
 std::ostream & operator<<(std::ostream & o, Victim const & rhs);

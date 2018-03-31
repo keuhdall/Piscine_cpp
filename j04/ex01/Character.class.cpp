@@ -32,6 +32,10 @@ void Character::equip(AWeapon* w) {
 
 void Character::attack(Enemy* e) {
     if (!e || !_w || _w->getAPCost() > _ap) return;
+    if (e->getHP() <= 0) {
+        delete e;
+        return;
+    }
     std::cout << _name << " attacks " << e->getType() << " with a " << _w->getName() << std::endl;
     _w->attack();
     _ap -= _w->getAPCost();
