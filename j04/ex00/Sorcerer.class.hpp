@@ -23,4 +23,6 @@ class Sorcerer {
         std::string _title;
 };
 
+std::ostream & operator<<(std::ostream & o, Sorcerer const & rhs);
+
 #endif

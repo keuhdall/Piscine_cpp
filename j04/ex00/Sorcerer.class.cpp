@@ -1,20 +1,19 @@
 #include "Sorcerer.class.hpp"
 
 Sorcerer::Sorcerer() {
-    std::cout << _name << ", " << _title << ", is born !" << std::endl;
 }
 
-Sorcerer(std::string name, std::string title) : _name(name), _title(title) {
-    Sorcerer();
+Sorcerer::Sorcerer(std::string name, std::string title) : _name(name), _title(title) {
+    std::cout << _name << ", " << _title << ", is born !" << std::endl;
 }
 
 Sorcerer::Sorcerer(Sorcerer const & src) {
     *this = src;
-    Sorcerer();
+    std::cout << _name << ", " << _title << ", is born !" << std::endl;
 }
 
 Sorcerer::~Sorcerer() {
-    std::cout << _name << ", " << _title << ", is dead. Consequences will never be the same !" std::endl;
+    std::cout << _name << ", " << _title << ", is dead. Consequences will never be the same !" << std::endl;
 }
 
 Sorcerer & Sorcerer::operator=(Sorcerer const & rhs) {
@@ -25,18 +24,19 @@ Sorcerer & Sorcerer::operator=(Sorcerer const & rhs) {
     return *this;
 }
 
-void Sorcerer::introduce() const {
-    std::cout << "I am " << _name ", " << _title << ", and I like ponies !" std::endl;
-}
-
 void Sorcerer::polymorph(Victim const & target) const {
     target.getPolymorphed();
 }
 
-std::string getName(void) const {
+std::string Sorcerer::getName(void) const {
     return _name;
 }
 
-std::string getTitle(void) const {
+std::string Sorcerer::getTitle(void) const {
     return _title;
+}
+
+std::ostream & operator<<(std::ostream & o, Sorcerer const & rhs) {
+    o << "I am " << rhs.getName() << ", " << rhs.getTitle() << ", and I like ponies !" << std::endl;
+    return o;
 }
