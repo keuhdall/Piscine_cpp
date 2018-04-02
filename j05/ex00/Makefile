@@ -16,9 +16,7 @@ SRC_PATH=.
 INC_PATH=.
 OBJ_PATH=./objs
 
-SRC_NAME = Sorcerer.class.cpp \
-			Victim.class.cpp \
-			Peon.class.cpp \
+SRC_NAME = Bureaucrat.class.cpp \
 			main.cpp \
 
 OBJ_NAME = $(SRC_NAME:.cpp=.o)
