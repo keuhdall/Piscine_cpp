@@ -24,6 +24,20 @@ class Form {
                 GradeTooLowException & operator=(GradeTooLowException const & rhs);
         };
 
+        class GradeTooHighException : public std::exception {
+            public:
+                GradeTooHighException() {};
+                GradeTooHighException(GradeTooHighException const & src) {
+                    *this = src;
+                }
+                virtual ~GradeTooHighException() throw() {};
+                virtual const char *what() const throw() {
+                    return "grade is too High";
+                }
+            private:
+                GradeTooLowException & operator=(GradeTooLowException const & rhs);
+        };
+
         Form();
         Form(std::string const name, int gradeToSign, int gradeToExec);
         Form(Form const & src);
