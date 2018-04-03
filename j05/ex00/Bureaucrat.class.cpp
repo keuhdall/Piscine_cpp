@@ -40,17 +40,17 @@ void Bureaucrat::setGrade(int grade) {
 }
 
 void Bureaucrat::promote() {
-    _grade--;
-    if (_grade < 1) {
+    if (_grade - 1 < 1) {
         throw GradeTooHighException();
     }
+    _grade--;
 }
 
 void Bureaucrat::demote() {
-    _grade++;
-    if (_grade > 150) {
+    if (_grade + 1 > 150) {
         throw GradeTooLowException();
     }
+    _grade++;
 }
 
 std::ostream & operator<<(std::ostream & o, Bureaucrat const & rhs) {
