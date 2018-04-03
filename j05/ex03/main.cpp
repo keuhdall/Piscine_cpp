@@ -16,6 +16,12 @@ int main(void) {
     Form *robotForm = intern.makeForm("robotomy request", "Bender");
     std::cout << "Intern created robotomy request form" << std::endl;
 
+    std::cout << "Intern created poop authorization form" << std::endl;
+    Form *poop = intern.makeForm("poop authorization form", "John");
+    if (!poop) {
+        std::cerr << "poop authorization form creation failed" << std::endl;
+    }
+
     std::cout << std::endl << "==================" << std::endl << std::endl;
 
     std::cout << "Matt execute RobotomyRequestForm (sign 72 ; exec 45)" << std::endl;
