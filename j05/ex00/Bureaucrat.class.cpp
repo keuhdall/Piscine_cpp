@@ -3,11 +3,11 @@
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade) {
     try {
         setGrade(grade);
-    } catch (GradeTooHighException *e) {
-        std::cout << e->what() << std::endl;
+    } catch (GradeTooHighException & e) {
+        std::cout << e.what() << std::endl;
         _grade = 1;
-    } catch (GradeTooLowException *e) {
-        std::cout << e->what() << std::endl;
+    } catch (GradeTooLowException & e) {
+        std::cout << e.what() << std::endl;
         _grade = 150;
     }
 }
@@ -35,9 +35,9 @@ int Bureaucrat::getGrade(void) const {
 
 void Bureaucrat::setGrade(int grade) {
     if (grade < 1) {
-        throw new GradeTooHighException();
+        throw GradeTooHighException();
     } else if (grade > 150) {
-        throw new GradeTooLowException();
+        throw GradeTooLowException();
     } else {
         _grade = grade;
     }
@@ -46,14 +46,14 @@ void Bureaucrat::setGrade(int grade) {
 void Bureaucrat::promote() {
     _grade--;
     if (_grade < 1) {
-        throw new GradeTooHighException();
+        throw GradeTooHighException();
     }
 }
 
 void Bureaucrat::demote() {
     _grade++;
     if (_grade > 150) {
-        throw new GradeTooLowException();
+        throw GradeTooLowException();
     }
 }
 

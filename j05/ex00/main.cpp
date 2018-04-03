@@ -17,22 +17,22 @@ int main(void) {
 
     try {
         bob.promote();
-    } catch (Bureaucrat::GradeTooHighException *e) {
+    } catch (Bureaucrat::GradeTooHighException & e) {
         bob.setGrade(1);
-        std::cerr << e->what() << std::endl;
+        std::cerr << e.what() << std::endl;
     }
     
     try {
         matt.demote();
-    } catch (Bureaucrat::GradeTooLowException *e) {
+    } catch (Bureaucrat::GradeTooLowException & e) {
         matt.setGrade(150);
-        std::cerr << e->what() << std::endl;
+        std::cerr << e.what() << std::endl;
     }
     
     try {
         bob.setGrade(-1);
-    } catch (Bureaucrat::GradeTooHighException *e) {
-        std::cerr << e->what() << std::endl;
+    } catch (Bureaucrat::GradeTooHighException & e) {
+        std::cerr << e.what() << std::endl;
     }
 
     std::cout << std::endl << "Unhandled exception here : " << std::endl;
