@@ -50,7 +50,7 @@ class Bureaucrat {
         void setGrade(int grade);
         void promote(void);
         void demote(void);
-        void signForm(Form f);
+        void signForm(Form & f);
 
     private:
         std::string const _name;

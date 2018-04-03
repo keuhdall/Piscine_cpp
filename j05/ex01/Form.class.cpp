@@ -4,7 +4,7 @@ Form::Form(std::string name, int gradeToSign, int gradeToExec) :
     _name(name), _isSigned(false), _gradeToSign(gradeToSign), _gradeToExec(gradeToExec) {
 }
 
-Form::Form(Form const & src) {
+Form::Form(Form const & src) : _gradeToSign(src.getGradeToSign()), _gradeToExec(src.getGradeToExec()) {
     *this = src;
 }
 
@@ -33,7 +33,7 @@ int Form::getGradeToExec() const {
 }
 
 void Form::beSigned(Bureaucrat b) {
-    if (b.getGrade() < _gradeToSign) {
+    if (b.getGrade() > _gradeToSign) {
         throw new GradeTooLowException();
         return;
     }
