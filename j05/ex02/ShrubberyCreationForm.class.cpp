@@ -1,10 +1,23 @@
 #include "ShrubberyCreationForm.class.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() {
+ShrubberyCreationForm::ShrubberyCreationForm(std::string const target) :
+    Form("Shrubbery Creation Form", 145, 137), _target(target) {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string const name) : Form(name, 145, 137) {
-    std::ofstream ofs(_name + "_shrubbery");
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const & src) {
+    *this = src;
+}
+
+ShrubberyCreationForm::~ShrubberyCreationForm() {
+}
+
+ShrubberyCreationForm & ShrubberyCreationForm::operator=(ShrubberyCreationForm const & rhs) {
+    _isSigned = rhs.getSigned();
+    return *this;
+}
+
+void ShrubberyCreationForm::action() const {
+    std::ofstream ofs(_target + "_shrubbery");
     ofs << "    oxoxoo    ooxoo" << std::endl;
     ofs << "  ooxoxo oo  oxoxooo" << std::endl;
     ofs << " oooo xxoxoo ooo ooox" << std::endl;
@@ -19,11 +32,4 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string const name) : Form(name
     ofs << "         |  |" << std::endl;
     ofs << "  ______/____\\____" << std::endl;
     ofs.close();
-}
-
-ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const & src) {
-    *this = src;
-}
-
-ShrubberyCreationForm::~ShrubberyCreationForm() {
 }

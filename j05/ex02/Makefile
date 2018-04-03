@@ -19,6 +19,8 @@ OBJ_PATH=./objs
 SRC_NAME = Bureaucrat.class.cpp \
 			Form.class.cpp \
 			ShrubberyCreationForm.class.cpp \
+			RobotomyRequestForm.class.cpp \
+			PresidentialPardonForm.class.cpp \
 			main.cpp \
 
 OBJ_NAME = $(SRC_NAME:.cpp=.o)

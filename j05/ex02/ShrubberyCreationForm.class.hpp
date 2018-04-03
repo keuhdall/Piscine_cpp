@@ -8,12 +8,14 @@
 class ShrubberyCreationForm : public Form {
     public:
         ShrubberyCreationForm();
-        ShrubberyCreationForm(std::string const name);
+        ShrubberyCreationForm(std::string const target);
         ShrubberyCreationForm(ShrubberyCreationForm const & src);
         virtual ~ShrubberyCreationForm();
-
-    private:
         ShrubberyCreationForm & operator=(ShrubberyCreationForm const & rhs);
+        void action(void) const;
+    
+    private:
+        std::string const _target;
 };
 
 #endif
