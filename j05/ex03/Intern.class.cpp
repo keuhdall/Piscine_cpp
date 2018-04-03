@@ -23,13 +23,13 @@ Form *Intern::_newPresidentialPardonForm(std::string const target) {
 }
 
 Form *Intern::makeForm(std::string const form, std::string const target) {
-    std::string formNames[3] = {
+    std::string formNames[] = {
         "shrubbery creation",
         "robotomy request",
         "presidential pardon"
     };
 
-    Form *(Intern::*funArray[3])(std::string const) = {
+    Form *(Intern::*funArray[])(std::string const) = {
         &Intern::_newShrubberyCreationForm,
         &Intern::_newRobotomyRequestForm,
         &Intern::_newPresidentialPardonForm
