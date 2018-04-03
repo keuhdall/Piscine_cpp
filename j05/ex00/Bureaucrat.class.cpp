@@ -1,14 +1,10 @@
 #include "Bureaucrat.class.hpp"
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade) {
-    try {
-        setGrade(grade);
-    } catch (GradeTooHighException & e) {
-        std::cout << e.what() << std::endl;
-        _grade = 1;
-    } catch (GradeTooLowException & e) {
-        std::cout << e.what() << std::endl;
-        _grade = 150;
+    if (_grade < 1) {
+        throw GradeTooHighException();
+    } else if (_grade > 150) {
+        throw GradeTooLowException();
     }
 }
 

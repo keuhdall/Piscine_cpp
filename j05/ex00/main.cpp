@@ -9,11 +9,14 @@ int main(void) {
     std::cout << john;
 
     std::cout << std::endl << " === Exceptions === " << std::endl;
-
-    Bureaucrat james("James", 151);
-    Bureaucrat matt("Matt", 0);
-    std::cout << james;
-    std::cout << matt;
+    try {
+        Bureaucrat james("James", 151);
+        Bureaucrat matt("Matt", 0);
+    } catch (Bureaucrat::GradeTooHighException & e) {
+        std::cerr << e.what() << std::endl;
+    } catch (Bureaucrat::GradeTooLowException & e) {
+        std::cerr << e.what() << std::endl;
+    }
 
     try {
         bob.promote();
@@ -23,9 +26,9 @@ int main(void) {
     }
     
     try {
-        matt.demote();
+        john.demote();
     } catch (Bureaucrat::GradeTooLowException & e) {
-        matt.setGrade(150);
+        john.setGrade(150);
         std::cerr << e.what() << std::endl;
     }
     
