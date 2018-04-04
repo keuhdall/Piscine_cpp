@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <random>
 
 struct Data {
     std::string s1;
@@ -19,9 +20,12 @@ void	randomAlphaNum(std::string &s, const int len)
 }
 
 void *serialize() {
+    std::random_device device;
+	std::mt19937 generator(device());
+    std::uniform_int_distribution<int> distribution(INT_MIN, INT_MAX);
     std::string s1(9, '\0');
     std::string s2(9, '\0');
-    int n = INT_MIN + (rand() % (static_cast<long>(INT_MAX) - INT_MIN + 1));
+    int n = distribution(device);
     randomAlphaNum(s1, 8);
     randomAlphaNum(s2, 8);
     Data *data = new Data();
