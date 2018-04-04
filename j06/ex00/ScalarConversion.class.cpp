@@ -22,7 +22,7 @@ void ScalarConversion::displayChar(void) {
             std::cout << "char : '" << c << "'" << std::endl;
         else
             std::cout << "char : non displayable" << std::endl;
-    } catch (std::invalid_argument & e) {
+    } catch (...) {
         std::cerr << "char : impossible" << std::endl;
     }
 }
@@ -30,7 +30,7 @@ void ScalarConversion::displayChar(void) {
 void ScalarConversion::displayInt(void) {
     try {
         std::cout << "int : " << std::stoi(_value) << std::endl;
-    } catch (std::invalid_argument & e) {
+    } catch (...) {
         std::cerr << "int : impossible" << std::endl;
     }
 }
@@ -38,7 +38,7 @@ void ScalarConversion::displayInt(void) {
 void ScalarConversion::displayFloat(void) {
     try {
         std::cout << std::fixed << std::setprecision(1) << "float : " << std::stof(_value) << "f" << std::endl;
-    } catch (std::invalid_argument & e) {
+    } catch (...) {
         std::cerr << "float : impossible" << std::endl;
     }
 }
@@ -46,7 +46,7 @@ void ScalarConversion::displayFloat(void) {
 void ScalarConversion::displayDouble(void) {
     try {
         std::cout << std::fixed << std::setprecision(1) << "double : " << std::stod(_value) << std::endl;
-    } catch (std::invalid_argument & e) {
+    } catch (...) {
         std::cerr << "double : impossible" << std::endl;
     }
 }
