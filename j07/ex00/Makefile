@@ -16,7 +16,7 @@ SRC_PATH=.
 INC_PATH=.
 OBJ_PATH=./objs
 
-SRC_NAME = main.cpp \
+SRC_NAME = whatever.cpp \
 
 OBJ_NAME = $(SRC_NAME:.cpp=.o)
 
