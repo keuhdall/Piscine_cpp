@@ -10,7 +10,6 @@ int main(void)
     try {
         std::list<int>::iterator found = find< std::list<int> >(l, 1);
         for (std::list<int>::iterator it = found; it != l.end(); it++) {
-            std::cout << "coucou4" << std::endl;
             count++;
         }
         std::cout << "The value 1 was found at index " << count << std::endl;
