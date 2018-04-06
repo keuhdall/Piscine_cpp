@@ -3,6 +3,7 @@
 
 # include "ACollection.hpp"
 # include "../Object/Asteroid.hpp"
+# include "../Object/Pilot.hpp"
 
 class AsteroidsCollection: public ACollection
 {
@@ -12,6 +13,7 @@ class AsteroidsCollection: public ACollection
         AsteroidsCollection &operator=(const AsteroidsCollection &copy);
         ~AsteroidsCollection(void);
         void updateObjects(void);
+		bool checkCollision(Pilot *pilot);
 
 };
 

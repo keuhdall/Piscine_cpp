@@ -3,6 +3,7 @@
 
 int Engine::maxHeight = 1;
 int Engine::maxWidth = 1;
+int	Engine::ammo = 20;
 
 void Engine::start() {
     this->frame = initscr();    // renvoie l'addresse de la fenetre creee
@@ -43,7 +44,9 @@ void Engine::launch() {
         clear();                                    // efface tout l'ecran
         this->stars.updateObjects();                // fait bouger les etoiles (.) en background
         this->enemies.updateObjects();              // fait bouger les ennemis
+		this->enemies.maybeShoot(this->e_rockets);
 		this->asteroids.updateObjects();
+		this->e_rockets.updateObjects(maxHeight);
         this->manageCollision();                    // detruit les ennemis touchés
         this->pilot.getRockets().updateObjects();   // fait bouger les missiles du pilote
         pilot.move();                               // fait bouger le pilote
@@ -57,42 +60,24 @@ void Engine::launch() {
 }
 
 void Engine::manageCollision(void) {
-    AObject *enemy;
-    AObject *rocket;
 
-		// fodra checker les asteroid
+	if (this->asteroids.checkCollision(&(this->pilot)) == true)
+		this->gameOver = true;
 
-    for (int i = 0; i < this->enemies.getSize(); i++) {
-        enemy = this->enemies.get(i);
-        if (!enemy->getEnabled())
-            continue;
-        for (int i = 0; i < this->pilot.getRockets().getSize(); i++) {
-            rocket = this->pilot.getRockets().get(i);
-            if (!rocket->getEnabled())
-                continue;
-            // si la rocket est sur un ennemi
-            if (rocket->getPosition().y == enemy->getPosition().y && rocket->getPosition().x == enemy->getPosition().x) {
-                this->score++;
-                enemy->setPosition(-1, -1);
-                enemy->setEnabled(false);
-                rocket->setPosition(-1, -1);
-                rocket->setEnabled(false);
-                break;
-            }
-        }
-        if (enemy->getPosition().y == this->pilot.getPosition().y && enemy->getPosition().x == this->pilot.getPosition().x) {
-            this->gameOver = true;
-        }
-    }
+	if (this->enemies.checkCollision(&(this->pilot), &(this->score)) == true)
+		this->gameOver = true;
+
+	if (this->e_rockets.checkCollision(&(this->pilot)) == true)
+		this->gameOver = true;
 }
 
 void Engine::printGame() {
     // affiche le pilote
     attron(A_UNDERLINE);
     attron(A_BOLD);
-    attron(COLOR_PAIR(2));
+    attron(COLOR_PAIR(1));
     mvaddch(this->pilot.getPosition().y, this->pilot.getPosition().x, this->pilot.getShape());
-    attroff(COLOR_PAIR(2));
+    attroff(COLOR_PAIR(1));
     attroff(A_BOLD);
     attroff(A_UNDERLINE);
 
@@ -102,11 +87,7 @@ void Engine::printGame() {
         if (star->getEnabled()) {
             int x = star->getPosition().x;
             int y = star->getPosition().y;
-            // attron(A_DIM);
-            attron(COLOR_PAIR(1));
             mvaddch(y, x, star->getShape());
-            attroff(COLOR_PAIR(1));
-            // attroff(A_DIM);
         }
     }
 
@@ -142,7 +123,17 @@ void Engine::printGame() {
         }
     }
 
+	for (int i = 0; i < this->e_rockets.getSize(); i++) {
+        AObject *e_rocket = this->e_rockets.get(i);
+        if (e_rocket->getEnabled()) {
+            int x = e_rocket->getPosition().x;
+            int y = e_rocket->getPosition().y;
+            mvaddch(y, x, e_rocket->getShape());
+        }
+    }
+
     mvprintw(1, 2, "Score: %d", this->score);
+	mvprintw(2, 2, "Ammo: %d", this->ammo);
 }
 
 

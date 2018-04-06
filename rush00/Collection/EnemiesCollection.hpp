@@ -3,6 +3,8 @@
 
 # include "ACollection.hpp"
 # include "../Object/Enemy.hpp"
+# include "EnRockCollection.hpp"
+# include "../Object/Pilot.hpp"
 
 class EnemiesCollection: public ACollection
 {
@@ -12,7 +14,8 @@ class EnemiesCollection: public ACollection
         EnemiesCollection &operator=(const EnemiesCollection &copy);
         ~EnemiesCollection(void);
         void updateObjects(void);
-
+		void maybeShoot(EnRockCollection &e_rockets);
+		bool checkCollision(Pilot *pilot, int *score);
 };
 
 #endif

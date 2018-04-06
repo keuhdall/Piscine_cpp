@@ -22,6 +22,7 @@ Enemy & Enemy::operator=(const Enemy & rhs) {
 	if (this != &rhs) {
 	    this->pos.y = rhs.pos.y;
 	    this->pos.x = rhs.pos.x;
+		this->shape = rhs.shape;
 	    this->enabled = rhs.enabled;
 	}
 	return *this;

@@ -44,7 +44,10 @@ void Pilot::move(void) {
 }
 
 void Pilot::shoot(void) {
-    this->rockets.fire(this->pos.y - 1, this->pos.x);
+	if (Engine::ammo > 0) {
+	    this->rockets.fire(this->pos.y - 1, this->pos.x);
+		Engine::ammo--;
+	}
 }
 
 void Pilot::setDirection(char dir) {

@@ -18,6 +18,11 @@ void Rocket::move(void) {
         this->pos.y -= 1;
 }
 
+void Rocket::demove(void) {
+    if (this->enabled)
+        this->pos.y += 1;
+}
+
 Rocket & Rocket::operator=(const Rocket & rhs) {
 	if (this != &rhs) {
 	    this->pos.y = rhs.pos.y;

@@ -14,7 +14,6 @@ class ACollection
         virtual ~ACollection(void);
         int             getSize(void) const;
         AObject         *get(int index) const;
-        virtual void    updateObjects(void) = 0;
         bool            checkElapsedTime(double waitTimeMs);
 
     protected:

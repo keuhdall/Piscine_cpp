@@ -2,6 +2,7 @@
 # define ENEMY_HPP
 
 # include "AObject.hpp"
+#include "../Object/Rocket.hpp"
 
 class Enemy: public AObject
 {
@@ -11,6 +12,7 @@ class Enemy: public AObject
 		Enemy &operator=(const Enemy & rhs);
 		~Enemy(void);
 		void move(void);
+
 };
 
 #endif

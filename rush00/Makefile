@@ -10,6 +10,7 @@ FILENAMES = main.cpp							\
 			Collection/RocketsCollection.cpp	\
 			Collection/EnemiesCollection.cpp	\
 			Collection/AsteroidsCollection.cpp	\
+			Collection/EnRockCollection.cpp		\
 			Object/AObject.cpp					\
 			Object/Star.cpp						\
 			Object/Rocket.cpp					\

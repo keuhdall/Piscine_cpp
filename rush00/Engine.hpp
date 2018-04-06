@@ -8,6 +8,7 @@
 # include "Collection/StarsCollection.hpp"
 # include "Collection/EnemiesCollection.hpp"
 # include "Collection/AsteroidsCollection.hpp"
+# include "Collection/EnRockCollection.hpp"
 # include "Object/Pilot.hpp"
 
 class Engine {
@@ -21,6 +22,7 @@ class Engine {
 		void        		finish(void);								// land the airplane safely.
 		static int  		maxHeight;
 		static int  		maxWidth;
+		static int			ammo;
 
 	private:
 		WINDOW				*frame;
@@ -28,6 +30,7 @@ class Engine {
 		StarsCollection		stars;
 		EnemiesCollection	enemies;
 		AsteroidsCollection asteroids;
+		EnRockCollection	e_rockets;
 		bool				gameOver;
 		int					score;
 		void				printGameOver(void);

@@ -1,8 +1,9 @@
 #include "RocketsCollection.hpp"
+#include "../Engine.hpp"
 
 RocketsCollection::RocketsCollection(void) {
 
-	this->size = 40;
+	this->size = 20;
 	this->data = new Rocket[this->size];
 };
 
@@ -36,6 +37,7 @@ void RocketsCollection::updateObjects() {
 		if (obj->getEnabled()) {
 			if (obj->getPosition().y < 0) {
 				obj->setEnabled(false);
+				Engine::ammo++;
 			}
 		}
 		obj->move();

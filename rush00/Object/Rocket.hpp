@@ -11,6 +11,7 @@ class Rocket: public AObject
 		Rocket &operator=(const Rocket & rhs);
 		~Rocket(void);
 		void move(void);
+		void demove(void);
 };
 
 #endif
