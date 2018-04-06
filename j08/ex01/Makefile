@@ -16,7 +16,7 @@ SRC_PATH=.
 INC_PATH=.
 OBJ_PATH=./objs
 
-SRC_NAME = span.class.cpp \
+SRC_NAME = Span.class.cpp \
 			main.cpp \
 
 OBJ_NAME = $(SRC_NAME:.cpp=.o)

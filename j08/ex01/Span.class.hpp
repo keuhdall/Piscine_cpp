@@ -2,6 +2,7 @@
 
 #include <stdexcept>
 #include <list>
+#include <climits>
 
 class Span {
     public:
